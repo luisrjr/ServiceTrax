@@ -1,5 +1,3 @@
-
-
 const main = document.querySelector("main");
 const displayContainer = document.getElementById("display-container");
 const serviceCategory = document.getElementById("category-input");
@@ -37,24 +35,23 @@ insertServiceBtn.addEventListener("click", (event) => {
   serviceData.unshift(serviceObj);
   console.log(serviceData);
   displayService();
-  //formBody.classList.add("hidden");
+  formBody.classList.add("hidden");
 });
 
 const displayService = () => {
   serviceData.forEach((serviceObject) => {
     displayContainer.innerHTML += `
         <div class="task" id="${serviceObject.id}">
-        <p><strong>Date:</strong> ${serviceObject.dateOfService}</p>
+        <p><strong>Mileage:</strong> ${serviceObject.mileage}</p>
           <p><strong>Category:</strong> ${serviceObject.category}</p>
           <p><strong>Description:</strong> ${serviceObject.description}</p>
-          <p><strong>mileage:</strong> ${serviceObject.mileage}</p>
+          <p><strong>Date:</strong> ${serviceObject.dateOfService}</p>
           <button onclick="editTask(this)" type="button" class="btn">Edit</button>
           <button onclick="deleteTask(this)" type="button" class="btn">Delete</button> 
         </div>
       `;
   });
 };
-
 
 const resetForm = () => {
   serviceCategory.value = "";
