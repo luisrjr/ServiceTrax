@@ -11,6 +11,21 @@ const cancelServiceBtn = document.getElementById("cancel-service-btn");
 const serviceData = [];
 const currentService = {};
 
+const insertServiceItem = () => {
+  const serviceObj = {
+    id: `${serviceCategory.value}${Date.now()}`,
+    dateOfService: dateOfService.value,
+    category: serviceCategory.value,
+    description: descriptionInput.value,
+    mileage: mileageInput.value,
+  };
+
+  serviceData.unshift(serviceObj);
+
+  displayService();
+  formBody.classList.add("hidden");
+};
+
 addServiceBtn.addEventListener("click", (event) => {
   formBody.classList.remove("hidden");
 });
@@ -20,21 +35,8 @@ cancelServiceBtn.addEventListener("click", (event) => {
 });
 
 insertServiceBtn.addEventListener("click", (event) => {
-  console.log(event);
   event.preventDefault();
-
-  const serviceObj = {
-    id: `${serviceCategory.value}${Date.now()}`,
-    dateOfService: dateOfService.value,
-    category: serviceCategory.value,
-    description: descriptionInput.value,
-    mileage: mileageInput.value,
-  };
-  console.log(serviceObj);
-
-  serviceData.unshift(serviceObj);
-  console.log(serviceData);
-  displayService();
+  insertServiceItem();
   formBody.classList.add("hidden");
 });
 
