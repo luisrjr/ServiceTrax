@@ -8,10 +8,11 @@ const addServiceBtn = document.getElementById("addbtn");
 const formBody = document.getElementById("add-service-form-body");
 const insertServiceBtn = document.getElementById("insert-service-btn");
 const cancelServiceBtn = document.getElementById("cancel-service-btn");
-const serviceData = [];
-const currentService = {};
 
-const insertServiceItem = () => {
+const serviceData = JSON.parse(localStorage.getItem("data")) || [];
+let currentService = {};
+
+const insertOrUpdateServiceItem = () => {
   const serviceObj = {
     id: `${serviceCategory.value}${Date.now()}`,
     dateOfService: dateOfService.value,
@@ -20,9 +21,20 @@ const insertServiceItem = () => {
     mileage: mileageInput.value,
   };
 
-  serviceData.unshift(serviceObj);
+  const serviceItemsIndex = serviceData.findIndex(
+    (item) => item.id === serviceObj.id
+  );
 
+  if (serviceItemsIndex === -1) {
+    serviceData.unshift(serviceObj);
+  } else {
+    serviceData[serviceItemsIndex] = serviceObj;
+  };
+  
+
+  localStorage.setItem("data", JSON.stringify(serviceData));
   displayService();
+
   formBody.classList.add("hidden");
 };
 
@@ -36,11 +48,12 @@ cancelServiceBtn.addEventListener("click", (event) => {
 
 insertServiceBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  insertServiceItem();
-  formBody.classList.add("hidden");
+  insertOrUpdateServiceItem();
+  resetForm();
 });
 
 const displayService = () => {
+  displayContainer.innerHTML = "";
   serviceData.forEach((serviceObject) => {
     displayContainer.innerHTML += `
         <div class="task" id="${serviceObject.id}">
@@ -61,4 +74,5 @@ const resetForm = () => {
   serviceCategory.value = "";
   descriptionInput.value = "";
   mileageInput.value = "";
+  formBody.classList.add("hidden");
 };
