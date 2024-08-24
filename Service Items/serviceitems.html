@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" lang="en-US"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="serviceitems.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>ServiceTrax</h1>
+      <div>
+        <button id="addbtn">Add Service</button>
+      </div>
+      <form id="add-service-form-body" class="hidden">
+        <label for="category-select">Category:</label>
+        <select name="category-select" id="category-input">
+          <option value="select">Select Category</option>
+          <option value="maintenance">Maintenance</option>
+          <option value="repair">Repair</option>
+          <option value="upgrade">Upgrade</option>
+        </select>
+        <label for="date-select">Date of Service:</label>
+        <input type="date" name="" id="service-date" />
+        <label for="service-description-select">Description of Service:</label>
+        <select id="service-description-select" required>
+          <option value="select">Select Service</option>
+          <option value="motoroil">Motor Oil Change</option>
+          <option value="oilfilter">Oil Filter Change</option>
+          <option value="airfilter">Air Filter Change</option>
+          <option value="gearoil">Gear Oil Change</option>
+          <option value="coolant">Coolant Flush</option>
+          <option value="drivebelt">Drive Belt Replacement</option>
+          <option value="tires">Tire Replacement</option>
+          <option value="sparkplugs">Spark Plug Replacement</option>
+        </select>
+        <label for="mileage-input">Mileage:</label>
+        <input required type="text" id="mileage-input" />
+        <div id="insertorcancelbtn">
+          <button id="insert-service-btn">Insert</button>
+          <button id="cancel-service-btn">Cancel</button>
+        </div>
+      </form>
+      <dialog id="confirm-close-dialog">
+        <form method="dialog">
+          <p class="discard-message-text">Discard unsaved changes?</p>
+          <div class="confirm-close-dialog-btn-container">
+            <button id="cancel-btn" class="btn">Cancel</button>
+            <button id="discard-btn" class="btn">Discard</button>
+          </div>
+        </form>
+      </dialog>
+      <div id="display-container">
+      
+      </div>
+      
+    </main>
+  </body>
+</html>
