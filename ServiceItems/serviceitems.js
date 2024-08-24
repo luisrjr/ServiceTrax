@@ -79,10 +79,12 @@ const resetForm = () => {
 
 addServiceBtn.addEventListener("click", (event) => {
   formBody.classList.remove("hidden");
+  addServiceBtn.classList.add("hidden");
 });
 
 cancelServiceBtn.addEventListener("click", (event) => {
   formBody.classList.add("hidden");
+  addServiceBtn.classList.remove("hidden");
 });
 
 insertServiceBtn.addEventListener("click", (event) => {
@@ -93,5 +95,5 @@ insertServiceBtn.addEventListener("click", (event) => {
 
 deleteServiceBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  deleteServiceItem()
+  deleteServiceItem();
 });

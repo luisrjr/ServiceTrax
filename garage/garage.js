@@ -4,6 +4,7 @@ const makeInput = document.getElementById("make-input");
 const modelInput = document.getElementById("model-input");
 const addVehBtn = document.getElementById("addvehiclebtn");
 let dateDropdown = document.getElementById("date-dropdown");
+let clearBtn = document.querySelector("#clear-btn");
 const garageData = JSON.parse(localStorage.getItem("garage_data")) || [];
 
 let currentYear = new Date().getFullYear();
@@ -40,7 +41,12 @@ const insertOrUpdateGarageVehicle = () => {
   //formBody.classList.add("hidden");
 };
 
-addVehBtn.addEventListener("click", insertOrUpdateGarageVehicle);
-currentYear;
+const clear = () => {
+  dateOption.value = currentYear;
+  makeInput.value = "";
+  makeInput.value = "";
+};
 
-export default garage;
+addVehBtn.addEventListener("click", insertOrUpdateGarageVehicle);
+clearBtn.addEventListener("click", clear);
+//currentYear;

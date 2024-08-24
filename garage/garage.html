@@ -11,10 +11,12 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
+    <script src="garage.js" defer></script>
   </head>
   <body>
     <main>
       <h1>Your Garage</h1>
+      <a href="/ServiceItems/serviceitems.html">Add a Service</a>
       <div>
         <label for="date-dropdown">Year:</label>
         <select name="date-dropdown" id="date-dropdown"></select>
@@ -36,8 +38,8 @@
         <label for="model-input">Vehicle Model</label>
         <input type="text" id="model-input" />
         <button id="addvehiclebtn">Add Vehicle</button>
+        <button id="clear-btn">Clear</button>
       </div>
     </main>
-    <script src="garage.js" async defer></script>
   </body>
 </html>
